@@ -16,15 +16,6 @@ async function bootstrap() {
 
   const fastifyAdapter = new FastifyAdapter(fastifyOptions);
 
-  const microserviceHealth = app.connectMicroservice<MicroserviceOptions>({
-    options: {
-      host: 'localhost',
-      port: 3000,
-      app.get('/im-ok', (req, res) => {
-      res.status(200).send({ message: "Status OK" })
-    },
-  });
-
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     fastifyAdapter,
